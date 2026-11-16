@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: vehicule-service
+
+# Profil DEV : logs plus verbeux + données de test enrichies
+logging:
+  level:
+    tn.sesame.driveeasy: TRACE
+    org.springframework.web: DEBUG
+
+driveeasy:
+  vehicule:
+    annee-min: 1990
+    max-daily-rate: 5000.00
+    allow-maintenance-override: true   # autorisé en DEV seulement

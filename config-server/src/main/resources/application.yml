@@ -1,16 +1,29 @@
-server:
-  port: 8888
-
 spring:
   application:
     name: config-server
-  profiles:
-    active: native
   cloud:
     config:
       server:
+        # ============================================================
+        # MODE GIT (PRODUCTION) : pointer sur GitHub
+        # Décommenter et remplacer TON_USER par votre username GitHub
+        # ============================================================
+        # git:
+        #   uri: https://github.com/TON_USER/driveeasy-config-repo
+        #   default-label: main
+        #   clone-on-start: true
+
+        # ============================================================
+        # MODE NATIF (LOCAL) : fichiers YAML embarqués dans classpath
+        # ============================================================
         native:
           search-locations: classpath:/config
+
+  profiles:
+    active: native
+
+server:
+  port: 8888
 
 eureka:
   client:
@@ -23,4 +36,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,env

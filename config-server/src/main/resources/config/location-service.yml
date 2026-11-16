@@ -5,28 +5,7 @@ spring:
   application:
     name: location-service
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${server.port}
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics
-  tracing:
-    sampling:
-      probability: 1.0
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans
-
 driveeasy:
-  storage: in-memory-ram
   tarification:
     remise-fidele: 0.05
     remise-vip: 0.10
